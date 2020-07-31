@@ -1,0 +1,22 @@
+#main_text{
+	text-align: center;
+	margin-top: 250px;
+}
+
+#header2{
+	font-weight: bold;
+	color: red;
+	font-size: 34px;
+	text-decoration: underline;
+}
+
+#para{
+	color: blue;
+	font-style: italic;
+	font-size: 24px;
+	text-decoration: underline;
+}
+
+#main_body{
+	background-color: yellow;
+}

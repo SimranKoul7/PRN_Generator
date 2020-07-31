@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html>
+
+	<head lang="en">
+		<meta charset = "utf-8">
+		<title>PRN GENERATOR</title>
+		<link rel="stylesheet" type="text/css" href="mainstyle.css" />
+	</head>
+	
+	<body id="main_body">
+		<div id="main_text">
+			<h2 id="header2"></h2>
+			<p id="para"></p>
+		</div>
+		
+		<script type="text/javascript">
+		var year = prompt("Enter your current year", "");
+		var branch = prompt("Enter your branch", "");
+		var batch = prompt("Enter your batch number", "");
+
+		function display(){
+			if(year.length != 4){
+				alert("Enter valid year");
+				return false
+			}
+			else if(isNaN(year)){
+				alert("Year should be a number");
+			}
+			else if((year < 0) || (batch < 0)){
+				alert("Numeric field, i.e., year/batch contains invalid input!");
+			}
+			else if(!isNaN(branch)){
+				alert("Enter a valid branch! Not a number!");
+			}
+			else if(isNaN(batch)){
+				alert("Enter a valid batch number");
+			}
+			else{
+				return true;
+			}
+		}
+		
+		function datadisplay(){
+			
+			if(batch.length < 2){
+				var ba1 = "0" + batch;
+			}
+			else{
+				var ba1 = batch.slice(0,2);
+			}
+			
+			if(batch < 10){
+				var num = "000" + batch;
+			}
+			else if(batch < 100){
+				var num = "00" + batch;
+			}
+			else if(batch < 1000){
+				var num = "0" + batch;
+			}
+			else{
+				var num = batch.slice(0,4);
+			}
+			
+			var y1 = year.slice(2,4);
+			
+			var br1 = branch.toUpperCase();
+			var br2 = br1.slice(0,2);
+			
+			document.getElementById('header2').innerHTML = "Your PRN is:";
+			document.getElementById('para').innerHTML = y1+br2+ba1+num;
+			//alert(y1+br2+ba1+num);
+		}
+
+		if((year != null) && (branch != null) && (batch != null)){
+			var final = display();
+			if(final){
+				datadisplay();
+			}
+		}
+		else{
+			alert("Fill all the fields properly");
+		}
+
+		</script>
+		
+		
+	</body>
+
+</html>
